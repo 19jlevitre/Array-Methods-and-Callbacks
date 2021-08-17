@@ -96,15 +96,16 @@ hint: the strings returned need to exactly match the string in step 4.
  */
 // 3 prams, data, getYearscb, getWinnerscb,
 function getWinnersByYear(data, getYearscb, getWinnerscb) {
-    var results = [];
-    const winnersStatement = data.map(function getWinnerscb(item,index){
+    const arrayYears = getYearscb(data,getFinals);
+    const arrayWinners = getWinnerscb(data, getFinals);
+    const winnersStatement = arrayWinners.map(function(item,index){
 
-    return item[`In ${index.Year}, ${index.Country} won the world cup!`];
+    return `In ${arrayYears[index]}, ${item} won the world cup!`;
     });
     // store the results in a var
     // use map with item and index
     // map over winners, use index to refer to the year and use item to refer to the current value in winners
-return results;
+return winnersStatement;
 }
 
 
